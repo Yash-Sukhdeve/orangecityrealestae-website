@@ -137,18 +137,23 @@ export default function AreasPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-[#0a1420] py-24 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#e8983a]/5 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-gold/20 border border-gold/30 mb-6">
-              <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <div className="inline-block px-4 py-2 bg-[#e8983a]/10 border border-[#e8983a]/20 mb-6">
+              <span className="text-[#e8983a] text-sm font-semibold uppercase tracking-wider">
                 Area Guides
               </span>
             </div>
             <h1 className="text-white mb-6">
               Nagpur&apos;s Prime Commercial Zones
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-white/60 leading-relaxed">
               Comprehensive guides to Central India&apos;s fastest-growing commercial markets.
               Find the perfect location for your business based on connectivity,
               infrastructure, and growth potential.
@@ -158,47 +163,47 @@ export default function AreasPage() {
       </section>
 
       {/* Market Overview */}
-      <section className="bg-gold py-8">
+      <section className="bg-gradient-to-r from-[#e8983a] to-[#d4872e] py-10">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-navy mb-1">3.8M</div>
-              <div className="text-navy/80">Sq.ft Office Stock</div>
+              <div className="text-3xl font-bold text-[#0a1420] mb-1">3.8M</div>
+              <div className="text-[#0a1420]/70">Sq.ft Office Stock</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-navy mb-1">12.9M</div>
-              <div className="text-navy/80">Sq.ft Warehouse Stock</div>
+              <div className="text-3xl font-bold text-[#0a1420] mb-1">12.9M</div>
+              <div className="text-[#0a1420]/70">Sq.ft Warehouse Stock</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-navy mb-1">26%</div>
-              <div className="text-navy/80">Growth by 2027</div>
+              <div className="text-3xl font-bold text-[#0a1420] mb-1">26%</div>
+              <div className="text-[#0a1420]/70">Growth by 2027</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-navy mb-1">13%</div>
-              <div className="text-navy/80">Healthy Vacancy</div>
+              <div className="text-3xl font-bold text-[#0a1420] mb-1">13%</div>
+              <div className="text-[#0a1420]/70">Healthy Vacancy</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Areas Grid */}
-      <section className="section bg-warm-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
           <div className="space-y-8">
             {areas.map((area, index) => (
               <Link
                 key={area.slug}
                 href={`/areas/${area.slug}`}
-                className="block bg-white hover:shadow-xl transition-all duration-300 group"
+                className="block bg-[#142236] border border-white/10 hover:border-[#e8983a]/30 transition-all duration-300 group"
               >
                 <div className="grid lg:grid-cols-4 gap-0">
                   {/* Icon Section */}
-                  <div className="bg-navy p-8 flex flex-col justify-center items-center text-center lg:col-span-1">
-                    <div className="w-16 h-16 bg-gold/20 flex items-center justify-center mb-4">
-                      <area.icon size={32} className="text-gold" />
+                  <div className="bg-[#0a1420] p-8 flex flex-col justify-center items-center text-center lg:col-span-1">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mb-4">
+                      <area.icon size={32} className="text-[#0a1420]" />
                     </div>
                     <h3 className="text-white text-2xl mb-1">{area.name}</h3>
-                    <div className="text-gold text-sm">{area.tagline}</div>
+                    <div className="text-[#e8983a] text-sm">{area.tagline}</div>
                   </div>
 
                   {/* Content Section */}
@@ -206,18 +211,18 @@ export default function AreasPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                       {/* Description */}
                       <div>
-                        <p className="text-gray-600 mb-4">{area.description}</p>
+                        <p className="text-white/60 mb-4">{area.description}</p>
                         <div className="flex flex-wrap gap-2 mb-4">
                           {area.propertyTypes.map((type, idx) => (
                             <span
                               key={idx}
-                              className="px-3 py-1 bg-warm-white text-sm text-gray-600"
+                              className="px-3 py-1 bg-[#0a1420] border border-white/5 text-sm text-white/60"
                             >
                               {type}
                             </span>
                           ))}
                         </div>
-                        <div className="flex items-center gap-2 text-navy font-semibold group-hover:text-gold transition-colors">
+                        <div className="flex items-center gap-2 text-white font-semibold group-hover:text-[#e8983a] transition-colors">
                           <span>Explore {area.name}</span>
                           <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                         </div>
@@ -226,9 +231,9 @@ export default function AreasPage() {
                       {/* Stats */}
                       <div className="grid grid-cols-2 gap-4">
                         {Object.entries(area.stats).map(([key, value], idx) => (
-                          <div key={idx} className="border-l-2 border-gold pl-3">
-                            <div className="text-xl font-bold text-navy">{value}</div>
-                            <div className="text-sm text-gray-500 capitalize">
+                          <div key={idx} className="border-l-2 border-[#e8983a] pl-3">
+                            <div className="text-xl font-bold text-white">{value}</div>
+                            <div className="text-sm text-white/40 capitalize">
                               {key.replace(/([A-Z])/g, ' $1').trim()}
                             </div>
                           </div>
@@ -237,11 +242,11 @@ export default function AreasPage() {
                     </div>
 
                     {/* Highlights */}
-                    <div className="mt-6 pt-6 border-t border-gray-100">
+                    <div className="mt-6 pt-6 border-t border-white/10">
                       <div className="flex flex-wrap gap-4">
                         {area.highlights.map((highlight, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm text-gray-600">
-                            <TrendingUp size={14} className="text-gold" />
+                          <div key={idx} className="flex items-center gap-2 text-sm text-white/50">
+                            <TrendingUp size={14} className="text-[#e8983a]" />
                             {highlight}
                           </div>
                         ))}
@@ -256,41 +261,41 @@ export default function AreasPage() {
       </section>
 
       {/* Zero Mile City */}
-      <section className="section bg-navy">
+      <section className="section bg-[#0a1420]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="w-12 h-0.5 bg-gold mb-6" />
+              <div className="accent-line" />
               <h2 className="text-white mb-6">The Zero Mile City Advantage</h2>
-              <p className="text-gray-300 text-lg mb-6">
+              <p className="text-white/60 text-lg mb-6">
                 Nagpur is India&apos;s geographic center—equidistant from Mumbai, Delhi,
                 Chennai, and Kolkata. This strategic position makes it ideal for
                 national distribution centers and pan-India operations.
               </p>
               <div className="grid grid-cols-2 gap-6">
-                <div className="border-l-2 border-gold pl-4">
-                  <div className="text-3xl font-bold text-gold mb-1">8 hrs</div>
-                  <div className="text-gray-400">To Mumbai via Samruddhi</div>
+                <div className="border-l-2 border-[#e8983a] pl-4">
+                  <div className="text-3xl font-bold text-[#e8983a] mb-1">8 hrs</div>
+                  <div className="text-white/40">To Mumbai via Samruddhi</div>
                 </div>
-                <div className="border-l-2 border-gold pl-4">
-                  <div className="text-3xl font-bold text-gold mb-1">701 km</div>
-                  <div className="text-gray-400">Samruddhi Expressway</div>
+                <div className="border-l-2 border-[#e8983a] pl-4">
+                  <div className="text-3xl font-bold text-[#e8983a] mb-1">701 km</div>
+                  <div className="text-white/40">Samruddhi Expressway</div>
                 </div>
-                <div className="border-l-2 border-gold pl-4">
-                  <div className="text-3xl font-bold text-gold mb-1">43.8 km</div>
-                  <div className="text-gray-400">Metro Phase 2</div>
+                <div className="border-l-2 border-[#e8983a] pl-4">
+                  <div className="text-3xl font-bold text-[#e8983a] mb-1">43.8 km</div>
+                  <div className="text-white/40">Metro Phase 2</div>
                 </div>
-                <div className="border-l-2 border-gold pl-4">
-                  <div className="text-3xl font-bold text-gold mb-1">1,500 ac</div>
-                  <div className="text-gray-400">Mega Logistics Hub</div>
+                <div className="border-l-2 border-[#e8983a] pl-4">
+                  <div className="text-3xl font-bold text-[#e8983a] mb-1">1,500 ac</div>
+                  <div className="text-white/40">Mega Logistics Hub</div>
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8">
+            <div className="bg-[#142236] border border-white/10 p-8">
               <h3 className="text-white text-2xl font-serif mb-6">
                 Find Your Ideal Location
               </h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-white/60 mb-6">
                 Not sure which commercial zone suits your business? Our experts can
                 help you identify the perfect location based on your industry,
                 workforce needs, and growth plans.

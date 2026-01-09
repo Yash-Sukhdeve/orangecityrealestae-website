@@ -53,18 +53,23 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-[#0a1420] py-24 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#e8983a]/5 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-gold/20 border border-gold/30 mb-6">
-              <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <div className="inline-block px-4 py-2 bg-[#e8983a]/10 border border-[#e8983a]/20 mb-6">
+              <span className="text-[#e8983a] text-sm font-semibold uppercase tracking-wider">
                 Contact Us
               </span>
             </div>
             <h1 className="text-white mb-6">
               Let&apos;s Discuss Your Commercial Property Needs
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-white/60 leading-relaxed">
               Whether you&apos;re seeking office space, retail showrooms, warehouses,
               or investment opportunities—our team is ready to help.
             </p>
@@ -73,22 +78,22 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="section bg-warm-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}
             <div className="lg:col-span-1">
-              <div className="bg-white p-8 mb-8">
-                <h3 className="text-xl mb-6">Get in Touch</h3>
+              <div className="bg-[#142236] border border-white/10 p-8 mb-8">
+                <h3 className="text-white text-xl mb-6">Get in Touch</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-navy flex items-center justify-center flex-shrink-0">
-                      <MapPin size={20} className="text-gold" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center flex-shrink-0">
+                      <MapPin size={20} className="text-[#0a1420]" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Office Address</h4>
-                      <p className="text-gray-600">
+                      <h4 className="text-white font-semibold mb-1">Office Address</h4>
+                      <p className="text-white/50">
                         123 Civil Lines, Near Reserve Bank,<br />
                         Nagpur - 440001, Maharashtra
                       </p>
@@ -96,44 +101,42 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-navy flex items-center justify-center flex-shrink-0">
-                      <Phone size={20} className="text-gold" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center flex-shrink-0">
+                      <Phone size={20} className="text-[#0a1420]" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Phone</h4>
-                      <a href="tel:+919876543210" className="text-gray-600 hover:text-gold transition-colors">
+                      <h4 className="text-white font-semibold mb-1">Phone</h4>
+                      <a href="tel:+919876543210" className="text-white/50 hover:text-[#e8983a] transition-colors block">
                         +91 98765 43210
                       </a>
-                      <br />
-                      <a href="tel:+917123456789" className="text-gray-600 hover:text-gold transition-colors">
+                      <a href="tel:+917123456789" className="text-white/50 hover:text-[#e8983a] transition-colors block">
                         +91 71234 56789
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-navy flex items-center justify-center flex-shrink-0">
-                      <Mail size={20} className="text-gold" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center flex-shrink-0">
+                      <Mail size={20} className="text-[#0a1420]" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Email</h4>
-                      <a href="mailto:info@orangecityrealestate.com" className="text-gray-600 hover:text-gold transition-colors">
+                      <h4 className="text-white font-semibold mb-1">Email</h4>
+                      <a href="mailto:info@orangecityrealestate.com" className="text-white/50 hover:text-[#e8983a] transition-colors block">
                         info@orangecityrealestate.com
                       </a>
-                      <br />
-                      <a href="mailto:sales@orangecityrealestate.com" className="text-gray-600 hover:text-gold transition-colors">
+                      <a href="mailto:sales@orangecityrealestate.com" className="text-white/50 hover:text-[#e8983a] transition-colors block">
                         sales@orangecityrealestate.com
                       </a>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-navy flex items-center justify-center flex-shrink-0">
-                      <Clock size={20} className="text-gold" />
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center flex-shrink-0">
+                      <Clock size={20} className="text-[#0a1420]" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">Business Hours</h4>
-                      <p className="text-gray-600">
+                      <h4 className="text-white font-semibold mb-1">Business Hours</h4>
+                      <p className="text-white/50">
                         Monday - Saturday: 9:00 AM - 7:00 PM<br />
                         Sunday: By Appointment
                       </p>
@@ -142,7 +145,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* WhatsApp CTA */}
-                <div className="mt-8 pt-8 border-t border-gray-100">
+                <div className="mt-8 pt-8 border-t border-white/10">
                   <a
                     href="https://wa.me/919876543210?text=Hi, I'm interested in your commercial properties in Nagpur."
                     target="_blank"
@@ -156,16 +159,16 @@ export default function ContactPage() {
               </div>
 
               {/* Market Report Download */}
-              <div id="market-report" className="bg-navy p-8">
+              <div id="market-report" className="bg-[#142236] border border-white/10 p-8">
                 <div className="flex items-center gap-3 mb-4">
-                  <FileText size={24} className="text-gold" />
+                  <FileText size={24} className="text-[#e8983a]" />
                   <h3 className="text-white text-xl">Market Report</h3>
                 </div>
-                <p className="text-gray-300 mb-6">
+                <p className="text-white/50 mb-6">
                   Download our quarterly Nagpur Commercial Real Estate Market Report
                   with insights on rental trends, vacancy rates, and investment outlook.
                 </p>
-                <button className="flex items-center justify-center gap-2 w-full py-3 bg-gold text-navy font-semibold hover:bg-gold-dark transition-colors">
+                <button className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-[#e8983a] to-[#d4872e] text-[#0a1420] font-semibold hover:opacity-90 transition-opacity">
                   <Download size={18} />
                   Download Report (PDF)
                 </button>
@@ -174,25 +177,25 @@ export default function ContactPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-white p-8">
+              <div className="bg-[#142236] border border-white/10 p-8">
                 {isSubmitted ? (
                   <div className="text-center py-12">
-                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle size={40} className="text-green-600" />
+                    <div className="w-20 h-20 bg-[#25D366]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle size={40} className="text-[#25D366]" />
                     </div>
-                    <h3 className="text-2xl mb-4">Thank You!</h3>
-                    <p className="text-gray-600 mb-8">
+                    <h3 className="text-white text-2xl mb-4">Thank You!</h3>
+                    <p className="text-white/50 mb-8">
                       Your enquiry has been submitted successfully. Our team will
                       contact you within 24 hours.
                     </p>
-                    <Link href="/properties" className="btn-navy">
+                    <Link href="/properties" className="btn-primary">
                       Browse Properties
                     </Link>
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-2xl mb-2">Send Us Your Requirements</h3>
-                    <p className="text-gray-600 mb-8">
+                    <h3 className="text-white text-2xl mb-2">Send Us Your Requirements</h3>
+                    <p className="text-white/50 mb-8">
                       Fill out the form below and our commercial property experts
                       will get back to you within 24 hours.
                     </p>
@@ -200,8 +203,8 @@ export default function ContactPage() {
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
-                            Full Name <span className="text-red-500">*</span>
+                          <label className="block text-white text-sm font-semibold mb-2">
+                            Full Name <span className="text-[#e8983a]">*</span>
                           </label>
                           <input
                             type="text"
@@ -209,12 +212,12 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-gray-200"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a]"
                             placeholder="John Doe"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
+                          <label className="block text-white text-sm font-semibold mb-2">
                             Company Name
                           </label>
                           <input
@@ -222,7 +225,7 @@ export default function ContactPage() {
                             name="company"
                             value={formData.company}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-gray-200"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a]"
                             placeholder="ABC Corporation"
                           />
                         </div>
@@ -230,8 +233,8 @@ export default function ContactPage() {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
-                            Email Address <span className="text-red-500">*</span>
+                          <label className="block text-white text-sm font-semibold mb-2">
+                            Email Address <span className="text-[#e8983a]">*</span>
                           </label>
                           <input
                             type="email"
@@ -239,13 +242,13 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-gray-200"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a]"
                             placeholder="john@company.com"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
-                            Phone Number <span className="text-red-500">*</span>
+                          <label className="block text-white text-sm font-semibold mb-2">
+                            Phone Number <span className="text-[#e8983a]">*</span>
                           </label>
                           <input
                             type="tel"
@@ -253,7 +256,7 @@ export default function ContactPage() {
                             value={formData.phone}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-gray-200"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a]"
                             placeholder="+91 98765 43210"
                           />
                         </div>
@@ -261,15 +264,15 @@ export default function ContactPage() {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
-                            Property Interest <span className="text-red-500">*</span>
+                          <label className="block text-white text-sm font-semibold mb-2">
+                            Property Interest <span className="text-[#e8983a]">*</span>
                           </label>
                           <select
                             name="interest"
                             value={formData.interest}
                             onChange={handleChange}
                             required
-                            className="w-full px-4 py-3 border border-gray-200 bg-white"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white focus:border-[#e8983a]"
                           >
                             <option value="">Select property type</option>
                             {propertyInterests.map((interest) => (
@@ -280,14 +283,14 @@ export default function ContactPage() {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold mb-2">
+                          <label className="block text-white text-sm font-semibold mb-2">
                             Budget Range
                           </label>
                           <select
                             name="budget"
                             value={formData.budget}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 border border-gray-200 bg-white"
+                            className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white focus:border-[#e8983a]"
                           >
                             <option value="">Select budget range</option>
                             {budgetRanges.map((budget) => (
@@ -300,7 +303,7 @@ export default function ContactPage() {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold mb-2">
+                        <label className="block text-white text-sm font-semibold mb-2">
                           Preferred Location(s)
                         </label>
                         <input
@@ -308,13 +311,13 @@ export default function ContactPage() {
                           name="location"
                           value={formData.location}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 border border-gray-200"
+                          className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a]"
                           placeholder="e.g., MIHAN SEZ, Civil Lines, Dharampeth"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold mb-2">
+                        <label className="block text-white text-sm font-semibold mb-2">
                           Additional Requirements
                         </label>
                         <textarea
@@ -322,7 +325,7 @@ export default function ContactPage() {
                           value={formData.message}
                           onChange={handleChange}
                           rows={5}
-                          className="w-full px-4 py-3 border border-gray-200 resize-none"
+                          className="w-full px-4 py-3 bg-[#0a1420] border border-white/10 text-white placeholder:text-white/40 focus:border-[#e8983a] resize-none"
                           placeholder="Please share any specific requirements like area size, amenities, timeline, etc."
                         />
                       </div>
@@ -334,10 +337,10 @@ export default function ContactPage() {
                           required
                           className="mt-1"
                         />
-                        <label htmlFor="consent" className="text-sm text-gray-600">
+                        <label htmlFor="consent" className="text-sm text-white/50">
                           I agree to receive communications from Orange City Real Estate
                           regarding my property enquiry. View our{' '}
-                          <Link href="/privacy" className="text-gold hover:underline">
+                          <Link href="/privacy" className="text-[#e8983a] hover:underline">
                             Privacy Policy
                           </Link>.
                         </label>
@@ -357,18 +360,20 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="h-96 bg-gray-200 relative">
+      <section className="h-96 bg-[#0a1420] relative">
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <MapPin size={48} className="text-navy mx-auto mb-4" />
-            <p className="text-gray-600">
+            <div className="w-20 h-20 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center mx-auto mb-4">
+              <MapPin size={32} className="text-[#e8983a]" />
+            </div>
+            <p className="text-white/50">
               123 Civil Lines, Near Reserve Bank, Nagpur - 440001
             </p>
             <a
               href="https://maps.google.com/?q=Civil+Lines+Nagpur"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gold hover:underline mt-2 inline-block"
+              className="text-[#e8983a] hover:underline mt-2 inline-block"
             >
               Open in Google Maps →
             </a>

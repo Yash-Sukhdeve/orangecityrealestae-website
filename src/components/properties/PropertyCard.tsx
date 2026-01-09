@@ -32,23 +32,23 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   };
 
   return (
-    <div className="card group">
+    <div className="group bg-gradient-to-br from-[#142236] to-[#0f1d2e] border border-white/5 overflow-hidden hover:border-[#e8983a]/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(232,152,58,0.1)]">
       {/* Image */}
-      <div className="relative h-64 bg-gray-200 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent z-10" />
+      <div className="relative h-56 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1420] via-transparent to-transparent z-10" />
 
         {/* Placeholder with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy/20 to-navy/40 flex items-center justify-center">
-          <Building2 size={64} className="text-navy/30" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3d52]/30 to-[#0a1420]/60 flex items-center justify-center">
+          <Building2 size={56} className="text-white/10" />
         </div>
 
         {/* Badges */}
         <div className="absolute top-4 left-4 z-20 flex gap-2">
-          <span className="px-3 py-1 bg-gold text-navy text-xs font-semibold uppercase">
+          <span className="badge badge-orange">
             {statusLabels[property.status]}
           </span>
           {property.featured && (
-            <span className="px-3 py-1 bg-navy text-white text-xs font-semibold uppercase">
+            <span className="badge bg-white/10 backdrop-blur-sm text-white border border-white/20">
               Featured
             </span>
           )}
@@ -64,30 +64,28 @@ export default function PropertyCard({ property }: PropertyCardProps) {
 
       {/* Content */}
       <div className="p-6">
-        <div className="text-gold text-sm font-semibold uppercase tracking-wider mb-2">
+        <div className="text-[#e8983a] text-xs font-semibold uppercase tracking-wider mb-3">
           {typeLabels[property.type]}
         </div>
 
-        <h3 className="text-xl font-serif mb-3 group-hover:text-gold transition-colors line-clamp-2">
+        <h3 className="text-lg text-white font-semibold mb-3 group-hover:text-[#e8983a] transition-colors line-clamp-2">
           {property.title}
         </h3>
 
-        <div className="flex items-center gap-2 text-gray-500 mb-4">
-          <MapPin size={16} className="text-gold" />
-          <span>{property.area}, Nagpur</span>
+        <div className="flex items-center gap-2 text-white/50 mb-4">
+          <MapPin size={14} className="text-[#e8983a]" />
+          <span className="text-sm">{property.area}, Nagpur</span>
         </div>
 
         {/* Key Details */}
-        <div className="flex gap-6 py-4 border-t border-gray-100">
+        <div className="flex items-center gap-4 py-4 border-t border-white/5">
           <div className="flex items-center gap-2">
-            <Maximize size={16} className="text-navy" />
-            <span className="text-sm text-gray-600">
+            <Maximize size={14} className="text-[#e8983a]" />
+            <span className="text-sm text-white/70">
               {property.carpetArea.toLocaleString()} sq.ft
             </span>
           </div>
-          <div className="text-sm text-gray-500">
-            Carpet Area
-          </div>
+          <span className="text-xs text-white/40">Carpet Area</span>
         </div>
 
         {/* Highlights */}
@@ -95,7 +93,7 @@ export default function PropertyCard({ property }: PropertyCardProps) {
           {property.highlights.slice(0, 2).map((highlight, index) => (
             <span
               key={index}
-              className="px-2 py-1 bg-warm-white text-xs text-gray-600"
+              className="px-2 py-1 bg-white/5 border border-white/10 text-xs text-white/60"
             >
               {highlight}
             </span>
@@ -105,10 +103,10 @@ export default function PropertyCard({ property }: PropertyCardProps) {
         {/* CTA */}
         <Link
           href={`/properties/${property.id}`}
-          className="flex items-center justify-between pt-4 border-t border-gray-100 text-navy font-semibold group-hover:text-gold transition-colors"
+          className="flex items-center justify-between pt-4 border-t border-white/5 text-white/70 font-medium group-hover:text-[#e8983a] transition-colors"
         >
-          <span>View Details</span>
-          <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
+          <span className="text-sm">View Details</span>
+          <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
         </Link>
       </div>
     </div>

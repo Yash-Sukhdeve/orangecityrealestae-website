@@ -54,13 +54,13 @@ const areas = [
 
 export default function AreasSection() {
   return (
-    <section className="section bg-warm-white">
+    <section className="section bg-[#0a1420]">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="gold-line-center" />
-          <h2 className="mb-4">Nagpur&apos;s Prime Commercial Zones</h2>
-          <p className="text-gray-600 text-lg">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="accent-line-center" />
+          <h2 className="text-white mb-4">Nagpur&apos;s Prime Commercial Zones</h2>
+          <p className="text-white/50 text-lg">
             Strategic locations across Central India&apos;s fastest-growing commercial market.
             Each zone offers unique advantages for different business needs.
           </p>
@@ -72,26 +72,26 @@ export default function AreasSection() {
             <Link
               key={index}
               href={`/areas/${area.slug}`}
-              className="group bg-white p-6 border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300"
+              className="group bg-[#142236]/50 border border-white/5 p-6 hover:border-[#e8983a]/30 hover:bg-[#142236] transition-all duration-500"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-navy flex items-center justify-center flex-shrink-0 group-hover:bg-gold transition-colors">
-                  <area.icon size={24} className="text-white" />
+                <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#e8983a] group-hover:border-[#e8983a] transition-all duration-300">
+                  <area.icon size={22} className="text-[#e8983a] group-hover:text-[#0a1420]" />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg mb-1 group-hover:text-gold transition-colors">
+                  <h4 className="text-white text-lg mb-1 group-hover:text-[#e8983a] transition-colors">
                     {area.name}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-3">
+                  <p className="text-white/50 text-sm mb-3">
                     {area.description}
                   </p>
                   <div className="flex flex-col gap-1 text-sm">
-                    <span className="text-gold font-semibold">{area.stats}</span>
-                    <span className="text-gray-500">{area.highlight}</span>
+                    <span className="text-[#e8983a] font-semibold">{area.stats}</span>
+                    <span className="text-white/40">{area.highlight}</span>
                   </div>
                 </div>
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between text-navy text-sm font-semibold group-hover:text-gold transition-colors">
+              <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-white/60 text-sm font-medium group-hover:text-[#e8983a] transition-colors">
                 <span>Explore Area</span>
                 <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
               </div>
@@ -100,8 +100,8 @@ export default function AreasSection() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-12">
-          <Link href="/areas" className="btn-navy">
+        <div className="text-center mt-16">
+          <Link href="/areas" className="btn-outline">
             View All Area Guides
             <ArrowRight size={18} />
           </Link>

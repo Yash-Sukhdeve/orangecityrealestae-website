@@ -65,18 +65,23 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-[#0a1420] py-24 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#e8983a]/5 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-gold/20 border border-gold/30 mb-6">
-              <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <div className="inline-block px-4 py-2 bg-[#e8983a]/10 border border-[#e8983a]/20 mb-6">
+              <span className="text-[#e8983a] text-sm font-semibold uppercase tracking-wider">
                 About Us
               </span>
             </div>
             <h1 className="text-white mb-6">
               Nagpur&apos;s Premier Commercial Real Estate Partner
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-white/60 leading-relaxed">
               Since 2009, Orange City Real Estate has been the trusted partner for businesses
               seeking premium commercial properties in Central India. We bring institutional
               standards to a market traditionally underserved by national players.
@@ -86,37 +91,37 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="bg-gold py-8">
+      <section className="bg-gradient-to-r from-[#e8983a] to-[#d4872e] py-10">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-navy mb-1">500+</div>
-              <div className="text-navy/80">Properties Transacted</div>
+              <div className="text-4xl font-bold text-[#0a1420] mb-1">500+</div>
+              <div className="text-[#0a1420]/70">Properties Transacted</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-navy mb-1">₹250Cr+</div>
-              <div className="text-navy/80">Transaction Value</div>
+              <div className="text-4xl font-bold text-[#0a1420] mb-1">₹250Cr+</div>
+              <div className="text-[#0a1420]/70">Transaction Value</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-navy mb-1">200+</div>
-              <div className="text-navy/80">Corporate Clients</div>
+              <div className="text-4xl font-bold text-[#0a1420] mb-1">200+</div>
+              <div className="text-[#0a1420]/70">Corporate Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-navy mb-1">15+</div>
-              <div className="text-navy/80">Years Experience</div>
+              <div className="text-4xl font-bold text-[#0a1420] mb-1">15+</div>
+              <div className="text-[#0a1420]/70">Years Experience</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="section bg-warm-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="gold-line" />
-              <h2 className="mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-600">
+              <div className="accent-line" />
+              <h2 className="text-white mb-6">Our Story</h2>
+              <div className="space-y-4 text-white/60">
                 <p>
                   Orange City Real Estate was founded in 2009 with a clear vision: to fill the gap
                   left by national property consultants who covered Nagpur remotely from Mumbai
@@ -137,13 +142,13 @@ export default function AboutPage() {
                 </p>
               </div>
             </div>
-            <div className="bg-navy p-8">
+            <div className="bg-[#142236] border border-white/10 p-8">
               <h3 className="text-white text-2xl font-serif mb-6">Our Journey</h3>
               <div className="space-y-4">
                 {milestones.map((milestone, index) => (
                   <div key={index} className="flex items-start gap-4">
-                    <div className="w-16 text-gold font-bold">{milestone.year}</div>
-                    <div className="flex-1 text-gray-300 pb-4 border-b border-white/10">
+                    <div className="w-16 text-[#e8983a] font-bold">{milestone.year}</div>
+                    <div className="flex-1 text-white/60 pb-4 border-b border-white/10">
                       {milestone.event}
                     </div>
                   </div>
@@ -155,12 +160,12 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values */}
-      <section className="section bg-white">
+      <section className="section bg-[#0a1420]">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="gold-line-center" />
-            <h2 className="mb-4">What Sets Us Apart</h2>
-            <p className="text-gray-600 text-lg">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="accent-line-center" />
+            <h2 className="text-white mb-4">What Sets Us Apart</h2>
+            <p className="text-white/50 text-lg">
               Our commitment to commercial-only specialization and local expertise
               delivers value that generalist agencies cannot match.
             </p>
@@ -168,12 +173,12 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="text-center p-6">
-                <div className="w-16 h-16 bg-navy/5 flex items-center justify-center mx-auto mb-4">
-                  <value.icon size={32} className="text-navy" />
+              <div key={index} className="text-center p-8 bg-[#142236]/50 border border-white/5 hover:border-[#e8983a]/20 transition-all duration-500">
+                <div className="w-16 h-16 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center mx-auto mb-4">
+                  <value.icon size={32} className="text-[#e8983a]" />
                 </div>
-                <h4 className="text-lg mb-3">{value.title}</h4>
-                <p className="text-gray-600 text-sm">{value.description}</p>
+                <h4 className="text-white text-lg mb-3">{value.title}</h4>
+                <p className="text-white/50 text-sm">{value.description}</p>
               </div>
             ))}
           </div>
@@ -181,12 +186,12 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team */}
-      <section className="section bg-warm-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="gold-line-center" />
-            <h2 className="mb-4">Leadership Team</h2>
-            <p className="text-gray-600 text-lg">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="accent-line-center" />
+            <h2 className="text-white mb-4">Leadership Team</h2>
+            <p className="text-white/50 text-lg">
               Our experienced team brings decades of combined expertise in
               Nagpur&apos;s commercial real estate market.
             </p>
@@ -194,17 +199,17 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <div key={index} className="bg-white p-8 shadow-lg">
-                <div className="w-24 h-24 bg-navy/10 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Users size={40} className="text-navy" />
+              <div key={index} className="bg-[#142236] border border-white/10 p-8 hover:border-[#e8983a]/20 transition-all duration-500">
+                <div className="w-20 h-20 bg-[#e8983a]/10 border border-[#e8983a]/20 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-[#e8983a] font-semibold text-2xl">{member.name.charAt(0)}</span>
                 </div>
                 <div className="text-center">
-                  <h4 className="text-xl mb-1">{member.name}</h4>
-                  <div className="text-gold font-semibold text-sm mb-4">{member.role}</div>
-                  <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
+                  <h4 className="text-white text-xl mb-1">{member.name}</h4>
+                  <div className="text-[#e8983a] font-semibold text-sm mb-4">{member.role}</div>
+                  <p className="text-white/50 text-sm mb-6">{member.bio}</p>
                   <div className="flex flex-wrap justify-center gap-2">
                     {member.credentials.map((cred, idx) => (
-                      <span key={idx} className="px-3 py-1 bg-warm-white text-xs text-gray-600">
+                      <span key={idx} className="px-3 py-1 bg-[#0a1420] border border-white/5 text-xs text-white/50">
                         {cred}
                       </span>
                     ))}
@@ -217,47 +222,47 @@ export default function AboutPage() {
       </section>
 
       {/* Credentials */}
-      <section className="section bg-navy">
+      <section className="section bg-[#0a1420]">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="gold-line-center" />
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="accent-line-center" />
             <h2 className="text-white mb-4">Our Credentials</h2>
-            <p className="text-gray-300 text-lg">
+            <p className="text-white/50 text-lg">
               We maintain the highest standards of professional certification
               and regulatory compliance.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center">
-              <div className="w-16 h-16 bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                <Award size={32} className="text-gold" />
+            <div className="bg-[#142236]/80 border border-white/10 p-8 text-center hover:border-[#e8983a]/20 transition-all duration-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mx-auto mb-4">
+                <Award size={32} className="text-[#0a1420]" />
               </div>
               <h4 className="text-white text-lg mb-2">MahaRERA Registered</h4>
-              <div className="text-gold font-semibold mb-2">P52100012345</div>
-              <p className="text-gray-400 text-sm">
+              <div className="text-[#e8983a] font-semibold mb-2">P52100012345</div>
+              <p className="text-white/40 text-sm">
                 Fully compliant with Maharashtra Real Estate Regulatory Authority requirements.
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center">
-              <div className="w-16 h-16 bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                <Building2 size={32} className="text-gold" />
+            <div className="bg-[#142236]/80 border border-white/10 p-8 text-center hover:border-[#e8983a]/20 transition-all duration-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mx-auto mb-4">
+                <Building2 size={32} className="text-[#0a1420]" />
               </div>
               <h4 className="text-white text-lg mb-2">CREDAI Nagpur Member</h4>
-              <div className="text-gold font-semibold mb-2">Since 2018</div>
-              <p className="text-gray-400 text-sm">
+              <div className="text-[#e8983a] font-semibold mb-2">Since 2018</div>
+              <p className="text-white/40 text-sm">
                 Member of India&apos;s apex body for real estate developers.
               </p>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center">
-              <div className="w-16 h-16 bg-gold/20 flex items-center justify-center mx-auto mb-4">
-                <CheckCircle size={32} className="text-gold" />
+            <div className="bg-[#142236]/80 border border-white/10 p-8 text-center hover:border-[#e8983a]/20 transition-all duration-500">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mx-auto mb-4">
+                <CheckCircle size={32} className="text-[#0a1420]" />
               </div>
               <h4 className="text-white text-lg mb-2">NAR India Certified</h4>
-              <div className="text-gold font-semibold mb-2">REMET Designation</div>
-              <p className="text-gray-400 text-sm">
+              <div className="text-[#e8983a] font-semibold mb-2">REMET Designation</div>
+              <p className="text-white/40 text-sm">
                 Certified by the National Association of Realtors India.
               </p>
             </div>
@@ -266,10 +271,10 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section bg-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="mb-4">Ready to Work With Us?</h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+          <h2 className="text-white mb-4">Ready to Work With Us?</h2>
+          <p className="text-white/50 text-lg mb-8 max-w-2xl mx-auto">
             Whether you&apos;re seeking commercial space or looking to list your property,
             our team is ready to help you achieve your goals.
           </p>
@@ -278,7 +283,7 @@ export default function AboutPage() {
               Schedule Consultation
               <ArrowRight size={18} />
             </Link>
-            <Link href="/properties" className="btn-navy">
+            <Link href="/properties" className="btn-outline">
               View Properties
             </Link>
           </div>

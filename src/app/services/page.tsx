@@ -141,18 +141,23 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-navy py-20">
-        <div className="container mx-auto px-6">
+      <section className="bg-[#0a1420] py-24 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#e8983a]/5 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-block px-4 py-2 bg-gold/20 border border-gold/30 mb-6">
-              <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <div className="inline-block px-4 py-2 bg-[#e8983a]/10 border border-[#e8983a]/20 mb-6">
+              <span className="text-[#e8983a] text-sm font-semibold uppercase tracking-wider">
                 Our Services
               </span>
             </div>
             <h1 className="text-white mb-6">
               Comprehensive Commercial Real Estate Services
             </h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-xl text-white/60 leading-relaxed">
               From corporate tenant representation to property management, we deliver
               institutional-quality commercial real estate services tailored to Nagpur&apos;s
               dynamic market.
@@ -162,9 +167,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="section bg-warm-white">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
-          <div className="space-y-16">
+          <div className="space-y-20">
             {services.map((service, index) => (
               <div
                 key={service.id}
@@ -174,35 +179,35 @@ export default function ServicesPage() {
                 }`}
               >
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className="w-14 h-14 bg-navy flex items-center justify-center mb-6">
-                    <service.icon size={28} className="text-gold" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mb-6">
+                    <service.icon size={28} className="text-[#0a1420]" />
                   </div>
-                  <div className="text-gold text-sm font-semibold uppercase tracking-wider mb-2">
+                  <div className="text-[#e8983a] text-sm font-semibold uppercase tracking-wider mb-2">
                     {service.tagline}
                   </div>
-                  <h2 className="text-3xl mb-4">{service.title}</h2>
-                  <p className="text-gray-600 text-lg mb-6">
+                  <h2 className="text-white text-3xl mb-4">{service.title}</h2>
+                  <p className="text-white/60 text-lg mb-6">
                     {service.description}
                   </p>
-                  <div className="bg-white p-6 mb-6">
-                    <h4 className="text-lg mb-4">What We Deliver</h4>
+                  <div className="bg-[#142236] border border-white/10 p-6 mb-6">
+                    <h4 className="text-white text-lg mb-4">What We Deliver</h4>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {service.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-start gap-2">
-                          <CheckCircle size={18} className="text-gold flex-shrink-0 mt-1" />
-                          <span className="text-gray-600 text-sm">{benefit}</span>
+                          <CheckCircle size={18} className="text-[#e8983a] flex-shrink-0 mt-1" />
+                          <span className="text-white/60 text-sm">{benefit}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div className="text-sm text-gray-500">
-                    <strong>Ideal for:</strong> {service.ideal}
+                  <div className="text-sm text-white/40">
+                    <strong className="text-white/60">Ideal for:</strong> {service.ideal}
                   </div>
                 </div>
-                <div className={`bg-navy/5 h-80 flex items-center justify-center ${
+                <div className={`bg-[#142236]/50 border border-white/5 h-80 flex items-center justify-center ${
                   index % 2 === 1 ? 'lg:order-1' : ''
                 }`}>
-                  <service.icon size={120} className="text-navy/20" />
+                  <service.icon size={120} className="text-[#e8983a]/20" />
                 </div>
               </div>
             ))}
@@ -211,12 +216,12 @@ export default function ServicesPage() {
       </section>
 
       {/* Our Process */}
-      <section className="section bg-white">
+      <section className="section bg-[#0a1420]">
         <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="gold-line-center" />
-            <h2 className="mb-4">Our Process</h2>
-            <p className="text-gray-600 text-lg">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="accent-line-center" />
+            <h2 className="text-white mb-4">Our Process</h2>
+            <p className="text-white/50 text-lg">
               A structured approach that ensures successful outcomes for every client.
             </p>
           </div>
@@ -225,15 +230,15 @@ export default function ServicesPage() {
             {process.map((step, index) => (
               <div key={index} className="text-center relative">
                 {index < process.length - 1 && (
-                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-gray-200" />
+                  <div className="hidden md:block absolute top-8 left-1/2 w-full h-0.5 bg-white/10" />
                 )}
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-navy flex items-center justify-center mx-auto mb-4">
-                    <step.icon size={28} className="text-gold" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mx-auto mb-4">
+                    <step.icon size={28} className="text-[#0a1420]" />
                   </div>
-                  <div className="text-gold font-bold text-sm mb-2">Step {index + 1}</div>
-                  <h4 className="text-lg mb-2">{step.title}</h4>
-                  <p className="text-gray-600 text-sm">{step.description}</p>
+                  <div className="text-[#e8983a] font-bold text-sm mb-2">Step {index + 1}</div>
+                  <h4 className="text-white text-lg mb-2">{step.title}</h4>
+                  <p className="text-white/50 text-sm">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -242,44 +247,44 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section bg-navy">
+      <section className="section bg-[#0f1d2e]">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="w-12 h-0.5 bg-gold mb-6" />
+              <div className="accent-line" />
               <h2 className="text-white mb-6">Why Choose Orange City Real Estate?</h2>
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gold/20 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={20} className="text-gold" />
+                  <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={22} className="text-[#e8983a]" />
                   </div>
                   <div>
                     <h4 className="text-white text-lg mb-1">Commercial-Only Focus</h4>
-                    <p className="text-gray-400">
+                    <p className="text-white/50">
                       Unlike generalist agencies, we specialize exclusively in commercial
                       properties—bringing deeper expertise to every transaction.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gold/20 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={20} className="text-gold" />
+                  <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={22} className="text-[#e8983a]" />
                   </div>
                   <div>
                     <h4 className="text-white text-lg mb-1">Local Market Knowledge</h4>
-                    <p className="text-gray-400">
+                    <p className="text-white/50">
                       15+ years of on-ground presence in Nagpur gives us insights that
                       remote consultants from Mumbai or Pune simply cannot match.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-gold/20 flex items-center justify-center flex-shrink-0">
-                    <CheckCircle size={20} className="text-gold" />
+                  <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle size={22} className="text-[#e8983a]" />
                   </div>
                   <div>
                     <h4 className="text-white text-lg mb-1">Institutional Standards</h4>
-                    <p className="text-gray-400">
+                    <p className="text-white/50">
                       MahaRERA registered, CREDAI member, NAR India certified—we maintain
                       the highest professional standards.
                     </p>
@@ -287,9 +292,9 @@ export default function ServicesPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-8">
+            <div className="bg-[#142236] border border-white/10 p-8">
               <h3 className="text-white text-2xl font-serif mb-6">Get Expert Assistance</h3>
-              <p className="text-gray-300 mb-6">
+              <p className="text-white/60 mb-6">
                 Ready to discuss your commercial real estate needs? Our team is available
                 for a no-obligation consultation.
               </p>

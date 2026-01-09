@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -31,160 +32,144 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <>
-      {/* Top Bar */}
-      <div className="bg-navy text-white text-sm py-2 hidden md:block">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-6">
-            <a href="tel:+919876543210" className="flex items-center gap-2 hover:text-gold transition-colors">
-              <Phone size={14} />
-              <span>+91 98765 43210</span>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-[#0a1420]/95 backdrop-blur-xl border-b border-white/5 py-3'
+          : 'bg-[#0a1420]/80 backdrop-blur-sm py-5'
+      }`}
+    >
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo/logo.png"
+              alt="Orange City Real Estate"
+              width={220}
+              height={60}
+              className="h-12 w-auto"
+              priority
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navigation.map((item) => (
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
+                onMouseLeave={() => setActiveSubmenu(null)}
+              >
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide text-white/80 hover:text-[#e8983a] transition-colors"
+                >
+                  {item.name}
+                  {item.submenu && <ChevronDown size={14} className="opacity-50" />}
+                </Link>
+
+                {/* Submenu */}
+                {item.submenu && activeSubmenu === item.name && (
+                  <div className="absolute top-full left-0 pt-2 animate-fade-in">
+                    <div className="bg-[#0f1d2e]/95 backdrop-blur-xl border border-white/10 min-w-[220px] py-2 shadow-2xl">
+                      {item.submenu.map((subitem) => (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className="block px-5 py-2.5 text-sm text-white/70 hover:text-[#e8983a] hover:bg-white/5 transition-colors"
+                        >
+                          {subitem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-6">
+            <a
+              href="tel:+919876543210"
+              className="flex items-center gap-2 text-white/70 hover:text-[#e8983a] transition-colors"
+            >
+              <Phone size={16} />
+              <span className="text-sm font-medium">+91 98765 43210</span>
             </a>
-            <a href="mailto:info@orangecityrealestate.com" className="flex items-center gap-2 hover:text-gold transition-colors">
-              <Mail size={14} />
-              <span>info@orangecityrealestate.com</span>
-            </a>
+            <Link href="/contact" className="btn-primary text-sm py-2.5 px-6">
+              Get in Touch
+            </Link>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-gray-300">RERA: P52100012345</span>
-          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
-      {/* Main Header */}
-      <header
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white shadow-lg py-3'
-            : 'bg-white/95 backdrop-blur-sm py-4'
-        }`}
-      >
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-3">
-              <div className="flex flex-col">
-                <span className="text-2xl font-serif font-bold text-navy tracking-tight">
-                  Orange City
-                </span>
-                <span className="text-xs uppercase tracking-[0.2em] text-gold font-semibold">
-                  Real Estate
-                </span>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8">
-              {navigation.map((item) => (
-                <div
-                  key={item.name}
-                  className="relative"
-                  onMouseEnter={() => item.submenu && setActiveSubmenu(item.name)}
-                  onMouseLeave={() => setActiveSubmenu(null)}
-                >
-                  <Link
-                    href={item.href}
-                    className="flex items-center gap-1 text-charcoal hover:text-navy font-medium transition-colors py-2"
-                  >
-                    {item.name}
-                    {item.submenu && <ChevronDown size={16} />}
-                  </Link>
-
-                  {/* Submenu */}
-                  {item.submenu && activeSubmenu === item.name && (
-                    <div className="absolute top-full left-0 bg-white shadow-xl min-w-[220px] py-2 animate-fade-in">
-                      {item.submenu.map((subitem) => (
-                        <Link
-                          key={subitem.name}
-                          href={subitem.href}
-                          className="block px-5 py-3 text-charcoal hover:bg-warm-white hover:text-navy transition-colors"
-                        >
-                          {subitem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </nav>
-
-            {/* CTA Button */}
-            <div className="hidden lg:block">
-              <Link href="/contact" className="btn-primary">
-                Schedule Consultation
-              </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 text-navy"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 animate-fade-in">
-            <div className="container mx-auto px-6 py-4">
-              {navigation.map((item) => (
-                <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="block py-3 text-charcoal hover:text-navy font-medium border-b border-gray-100"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.submenu && (
-                    <div className="pl-4 bg-gray-50">
-                      {item.submenu.map((subitem) => (
-                        <Link
-                          key={subitem.name}
-                          href={subitem.href}
-                          className="block py-2 text-sm text-gray-600 hover:text-navy"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {subitem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="pt-4">
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden bg-[#0a1420]/98 backdrop-blur-xl border-t border-white/5 animate-fade-in">
+          <div className="container mx-auto px-6 py-6">
+            {navigation.map((item) => (
+              <div key={item.name} className="border-b border-white/5 last:border-0">
                 <Link
-                  href="/contact"
-                  className="btn-primary w-full justify-center"
+                  href={item.href}
+                  className="block py-3 text-white/80 hover:text-[#e8983a] font-medium transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Schedule Consultation
+                  {item.name}
                 </Link>
+                {item.submenu && (
+                  <div className="pl-4 pb-2">
+                    {item.submenu.map((subitem) => (
+                      <Link
+                        key={subitem.name}
+                        href={subitem.href}
+                        className="block py-2 text-sm text-white/50 hover:text-[#e8983a]"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {subitem.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
-              <div className="pt-4 flex flex-col gap-2 text-sm">
-                <a href="tel:+919876543210" className="flex items-center gap-2 text-charcoal">
-                  <Phone size={16} />
-                  +91 98765 43210
-                </a>
-                <a href="mailto:info@orangecityrealestate.com" className="flex items-center gap-2 text-charcoal">
-                  <Mail size={16} />
-                  info@orangecityrealestate.com
-                </a>
-              </div>
+            ))}
+            <div className="pt-6 space-y-4">
+              <a
+                href="tel:+919876543210"
+                className="flex items-center gap-2 text-white/70"
+              >
+                <Phone size={18} />
+                +91 98765 43210
+              </a>
+              <Link
+                href="/contact"
+                className="btn-primary w-full justify-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Get in Touch
+              </Link>
             </div>
           </div>
-        )}
-      </header>
-    </>
+        </div>
+      )}
+    </header>
   );
 }
