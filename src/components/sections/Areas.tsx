@@ -54,15 +54,16 @@ const areas = [
 
 export default function AreasSection() {
   return (
-    <section className="section bg-[#0a1420]">
+    <section className="py-24 bg-luxury-black">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="accent-line-center" />
-          <h2 className="text-white mb-4">Nagpur&apos;s Prime Commercial Zones</h2>
-          <p className="text-white/50 text-lg">
-            Strategic locations across Central India&apos;s fastest-growing commercial market.
-            Each zone offers unique advantages for different business needs.
+          <span className="text-luxury-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+            Prime Locations
+          </span>
+          <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">Commercial Zones</h2>
+          <p className="text-gray-400 font-light text-lg">
+            Strategic investment corridors across Central India's fastest-growing market.
           </p>
         </div>
 
@@ -72,28 +73,26 @@ export default function AreasSection() {
             <Link
               key={index}
               href={`/areas/${area.slug}`}
-              className="group bg-[#142236]/50 border border-white/5 p-6 hover:border-[#e8983a]/30 hover:bg-[#142236] transition-all duration-500"
+              className="group bg-luxury-charcoal border border-white/5 p-8 hover:border-luxury-gold/50 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center flex-shrink-0 group-hover:bg-[#e8983a] group-hover:border-[#e8983a] transition-all duration-300">
-                  <area.icon size={22} className="text-[#e8983a] group-hover:text-[#0a1420]" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-luxury-gold/5 rounded-full blur-2xl group-hover:bg-luxury-gold/10 transition-all duration-500" />
+              
+              <div className="flex items-start gap-6 relative z-10">
+                <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-luxury-gold group-hover:scale-110 transition-transform duration-300">
+                  <area.icon size={32} strokeWidth={1.5} />
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-white text-lg mb-1 group-hover:text-[#e8983a] transition-colors">
+                  <h4 className="font-serif text-xl text-white mb-2 group-hover:text-luxury-gold transition-colors">
                     {area.name}
                   </h4>
-                  <p className="text-white/50 text-sm mb-3">
+                  <p className="text-gray-400 text-sm mb-4 font-light">
                     {area.description}
                   </p>
-                  <div className="flex flex-col gap-1 text-sm">
-                    <span className="text-[#e8983a] font-semibold">{area.stats}</span>
-                    <span className="text-white/40">{area.highlight}</span>
+                  <div className="space-y-1">
+                    <p className="text-luxury-gold text-sm font-medium">{area.stats}</p>
+                    <p className="text-gray-500 text-xs tracking-wide">{area.highlight}</p>
                   </div>
                 </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-white/60 text-sm font-medium group-hover:text-[#e8983a] transition-colors">
-                <span>Explore Area</span>
-                <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
               </div>
             </Link>
           ))}
@@ -101,9 +100,12 @@ export default function AreasSection() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <Link href="/areas" className="btn-outline">
-            View All Area Guides
-            <ArrowRight size={18} />
+          <Link 
+            href="/areas" 
+            className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white hover:border-luxury-gold hover:text-luxury-gold transition-all duration-300 tracking-wider text-sm uppercase"
+          >
+            Explore All Zones
+            <ArrowRight size={16} />
           </Link>
         </div>
       </div>

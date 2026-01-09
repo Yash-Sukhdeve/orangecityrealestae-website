@@ -32,82 +32,69 @@ export default function PropertyCard({ property }: PropertyCardProps) {
   };
 
   return (
-    <div className="group bg-gradient-to-br from-[#142236] to-[#0f1d2e] border border-white/5 overflow-hidden hover:border-[#e8983a]/30 transition-all duration-500 hover:shadow-[0_0_40px_rgba(232,152,58,0.1)]">
-      {/* Image */}
-      <div className="relative h-56 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1420] via-transparent to-transparent z-10" />
-
-        {/* Placeholder with gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a3d52]/30 to-[#0a1420]/60 flex items-center justify-center">
-          <Building2 size={56} className="text-white/10" />
+    <div className="group bg-luxury-charcoal border border-white/5 hover:border-luxury-gold/50 transition-all duration-500 hover:-translate-y-2">
+      {/* Image Container */}
+      <div className="relative h-64 overflow-hidden bg-luxury-black">
+        {/* Placeholder with gradient - In real app, use property.images[0] */}
+        <div className="absolute inset-0 bg-gradient-to-br from-luxury-black via-gray-900 to-luxury-charcoal flex items-center justify-center group-hover:scale-105 transition-transform duration-700 ease-out">
+          <Building2 size={48} className="text-white/20" />
         </div>
+        
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
 
-        {/* Badges */}
-        <div className="absolute top-4 left-4 z-20 flex gap-2">
-          <span className="badge badge-orange">
+        {/* Status Badge */}
+        <div className="absolute top-4 left-4 z-20">
+          <span className="px-3 py-1 bg-luxury-gold text-luxury-black text-xs font-bold tracking-widest uppercase">
             {statusLabels[property.status]}
           </span>
-          {property.featured && (
-            <span className="badge bg-white/10 backdrop-blur-sm text-white border border-white/20">
-              Featured
-            </span>
-          )}
         </div>
 
-        {/* Price */}
+        {/* Price Tag */}
         <div className="absolute bottom-4 left-4 z-20">
-          <div className="text-white text-2xl font-bold">
+          <p className="text-white font-serif text-2xl tracking-tight">
             {formatPrice()}
-          </div>
+          </p>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        <div className="text-[#e8983a] text-xs font-semibold uppercase tracking-wider mb-3">
-          {typeLabels[property.type]}
+      <div className="p-8">
+        <div className="flex items-center gap-2 mb-3">
+           <span className="w-8 h-[1px] bg-luxury-gold"></span>
+           <span className="text-luxury-gold text-xs font-semibold uppercase tracking-widest">
+             {typeLabels[property.type]}
+           </span>
         </div>
 
-        <h3 className="text-lg text-white font-semibold mb-3 group-hover:text-[#e8983a] transition-colors line-clamp-2">
+        <h3 className="text-xl text-white font-serif mb-4 group-hover:text-luxury-gold transition-colors line-clamp-2 min-h-[3.5rem]">
           {property.title}
         </h3>
 
-        <div className="flex items-center gap-2 text-white/50 mb-4">
-          <MapPin size={14} className="text-[#e8983a]" />
-          <span className="text-sm">{property.area}, Nagpur</span>
+        <div className="flex items-center gap-2 text-gray-400 mb-6 font-light text-sm">
+          <MapPin size={14} className="text-luxury-gold" />
+          <span>{property.area}, Nagpur</span>
         </div>
 
-        {/* Key Details */}
-        <div className="flex items-center gap-4 py-4 border-t border-white/5">
+        {/* Specs Divider */}
+        <div className="w-full h-[1px] bg-white/10 mb-6"></div>
+
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Maximize size={14} className="text-[#e8983a]" />
-            <span className="text-sm text-white/70">
-              {property.carpetArea.toLocaleString()} sq.ft
+            <Maximize size={16} className="text-luxury-gold" />
+            <span className="text-sm text-gray-300">
+              {property.carpetArea.toLocaleString()} <span className="text-xs text-gray-500">Sq. Ft.</span>
             </span>
           </div>
-          <span className="text-xs text-white/40">Carpet Area</span>
-        </div>
 
-        {/* Highlights */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {property.highlights.slice(0, 2).map((highlight, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-white/5 border border-white/10 text-xs text-white/60"
-            >
-              {highlight}
-            </span>
-          ))}
+          {/* CTA */}
+          <Link
+            href={`/properties/${property.id}`}
+            className="flex items-center gap-2 text-white text-sm hover:text-luxury-gold transition-colors tracking-wide"
+          >
+            DETAILS <ArrowRight size={14} />
+          </Link>
         </div>
-
-        {/* CTA */}
-        <Link
-          href={`/properties/${property.id}`}
-          className="flex items-center justify-between pt-4 border-t border-white/5 text-white/70 font-medium group-hover:text-[#e8983a] transition-colors"
-        >
-          <span className="text-sm">View Details</span>
-          <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-        </Link>
       </div>
     </div>
   );

@@ -26,22 +26,14 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="section bg-[#0f1d2e] relative overflow-hidden">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#e8983a]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#e8983a]/3 rounded-full blur-[100px]" />
-      </div>
-
+    <section className="py-24 bg-luxury-charcoal relative overflow-hidden border-t border-white/5">
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="accent-line-center" />
-          <h2 className="text-white mb-4">Trusted by Leading Businesses</h2>
-          <p className="text-white/50 text-lg">
-            Hear from corporate clients who have partnered with Orange City Real Estate
-            for their commercial property needs in Nagpur.
-          </p>
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="text-luxury-gold text-xs font-bold tracking-[0.2em] uppercase mb-4 block">
+            Client Stories
+          </span>
+          <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">Trusted Partnerships</h2>
         </div>
 
         {/* Testimonials Grid */}
@@ -49,63 +41,42 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative"
+              className="bg-luxury-black p-10 border border-white/5 relative group hover:border-luxury-gold/20 transition-all duration-500"
             >
-              {/* Card */}
-              <div className="bg-[#142236]/80 border border-white/5 p-8 h-full hover:border-[#e8983a]/20 transition-all duration-500">
-                {/* Quote Icon */}
-                <div className="w-14 h-14 bg-gradient-to-br from-[#e8983a] to-[#d4872e] flex items-center justify-center mb-6">
-                  <Quote size={24} className="text-[#0a1420]" />
-                </div>
+              {/* Quote Icon */}
+              <div className="absolute top-8 right-8 text-luxury-gold/20 group-hover:text-luxury-gold/40 transition-colors">
+                <Quote size={40} />
+              </div>
 
-                {/* Rating */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} size={14} className="text-[#e8983a] fill-[#e8983a]" />
-                  ))}
-                </div>
+              {/* Rating */}
+              <div className="flex gap-1 mb-8">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} size={12} className="text-luxury-gold fill-luxury-gold" />
+                ))}
+              </div>
 
-                {/* Quote */}
-                <p className="text-white/70 italic mb-8 leading-relaxed text-[15px]">
-                  &quot;{testimonial.quote}&quot;
-                </p>
+              {/* Quote */}
+              <p className="text-gray-300 font-serif text-lg leading-relaxed mb-8 italic">
+                &quot;{testimonial.quote}&quot;
+              </p>
 
-                {/* Author */}
-                <div className="border-t border-white/10 pt-6 mt-auto">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-[#e8983a]/10 border border-[#e8983a]/20 flex items-center justify-center">
-                      <span className="text-[#e8983a] font-semibold text-lg">
-                        {testimonial.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">{testimonial.name}</div>
-                      <div className="text-[#e8983a] text-sm">{testimonial.designation}</div>
-                      <div className="text-white/40 text-xs mt-0.5">{testimonial.company}</div>
-                    </div>
-                  </div>
-                </div>
+              {/* Author */}
+              <div className="mt-auto">
+                <div className="text-white font-medium tracking-wide uppercase text-sm mb-1">{testimonial.name}</div>
+                <div className="text-luxury-gold text-xs tracking-wider mb-2">{testimonial.designation}</div>
+                <div className="text-gray-500 text-xs">{testimonial.company}</div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Trust Badges */}
-        <div className="mt-20 pt-12 border-t border-white/10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6 bg-[#142236]/50 border border-white/5">
-              <div className="text-[#e8983a] text-xs uppercase tracking-[0.2em] mb-3">MahaRERA Registered</div>
-              <div className="text-white font-semibold text-lg">P52100012345</div>
-            </div>
-            <div className="text-center p-6 bg-[#142236]/50 border border-white/5">
-              <div className="text-[#e8983a] text-xs uppercase tracking-[0.2em] mb-3">CREDAI Member</div>
-              <div className="text-white font-semibold text-lg">Nagpur Chapter</div>
-            </div>
-            <div className="text-center p-6 bg-[#142236]/50 border border-white/5">
-              <div className="text-[#e8983a] text-xs uppercase tracking-[0.2em] mb-3">NAR India</div>
-              <div className="text-white font-semibold text-lg">Certified Agent</div>
-            </div>
-          </div>
+        {/* Trust Badges - Simplified */}
+        <div className="mt-20 pt-12 border-t border-white/5 flex flex-wrap justify-center gap-12 opacity-60">
+           {['MahaRERA Registered', 'CREDAI Member', 'NAR India Certified'].map((badge, i) => (
+             <span key={i} className="text-xs tracking-[0.2em] uppercase text-gray-400 hover:text-luxury-gold transition-colors cursor-default">
+               {badge}
+             </span>
+           ))}
         </div>
       </div>
     </section>
